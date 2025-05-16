@@ -1,19 +1,19 @@
 {
   "routers": ["A", "E"],
   "clients": ["b", "c", "d"],
-  "clientSendRate": 10,
-  "endTime": 100,
+  "client_send_rate": 10,
+  "end_time": 100,
 
   "links": [
-    ["A","b", 1, 1, 1, 1],
-    ["A","c", 2, 1, 1, 1],
-    ["E","d", 1, 1, 1, 1],
-    ["E","A", 2, 3, 1, 1]
+    ["A", "b", 1, 1, 1, 1],
+    ["A", "c", 2, 1, 1, 1],
+    ["E", "d", 1, 1, 1, 1],
+    ["E", "A", 2, 3, 1, 1]
   ],
 
   "changes": [],
 
-  "correctRoutes": [
+  "correct_routes": [
     ["b", "A", "c"],
     ["b", "A", "b"],
     ["b", "A", "E", "d"],
@@ -26,24 +26,24 @@
   ],
 
   "visualize": {
-    "gridSize": 3,
+    "grid_size": 3,
     "locations": {
-      "A":[1,0],
-      "b":[0,0],
-      "c":[2,0],
-      "d": [1,2],
-      "E": [1,1]
+      "A": [1, 0],
+      "b": [0, 0],
+      "c": [2, 0],
+      "d": [1, 2],
+      "E": [1, 1]
     },
-    "canvasWidth": 800,
-    "canvasHeight": 800,
-    "timeMultiplier": 20,
-    "latencyCorrection": 1.5,
-    "animateRate": 40,
-    "routerColor": "red",
-    "clientColor": "DodgerBlue2",
-    "lineColor": "orange",
-    "inactiveColor": "gray",
-    "lineWidth": 6,
-    "lineFontSize": 16
+    "canvas_width": 800,
+    "canvas_height": 800,
+    "time_multiplier": 20,
+    "latency_correction": 1.5,
+    "animate_rate": 40,
+    "router_color": "red",
+    "client_color": "DodgerBlue2",
+    "line_color": "orange",
+    "inactive_color": "gray",
+    "line_width": 6,
+    "line_font_size": 16
   }
 }
