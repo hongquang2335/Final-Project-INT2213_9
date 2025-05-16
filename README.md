@@ -48,12 +48,12 @@ Dự án đã có sẵn bộ test kiểm thử tương ứng.
 `python3 visualize_network.py [NetworkSimulationFile.json] DV`
 
 Ví dụ với small_net: 
-`python3 visualize_network.py [01_small_net.json] DV`
+`python3 visualize_network.py 01_small_net.json DV`
 
 2. Để chạy dự án không có giao diện đồ hoạ bằng lệnh:
 `python3 network.py [NetworkSimulationFile.json] DV`
 
 Ví dụ với small_net: 
-`python3 network.py [01_small_net.json] DV`
+`python3 network.py 01_small_net.json DV`
 
 Các tuyến đường đến và đi với mỗi client sau khi kết thúc quá trình chạy mô phỏng sẽ được in ra, cùng với việc chúng có khớp kết quả test đưa ra hay không. Nếu khớp, việc triển khai thành công, ngược lại nếu không, tiếp tục fix bug.
