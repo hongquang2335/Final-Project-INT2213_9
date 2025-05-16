@@ -2,7 +2,7 @@
 
 ## Thành viên nhóm
 
-1: Đầu Hồng Quang - 23020144
+1: Đầu Hồng Quang - 23020135
 2: Đỗ Đình Nam - 23020120
 
 ## Giới thiệu đề tài
