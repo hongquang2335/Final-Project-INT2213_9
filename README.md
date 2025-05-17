@@ -50,7 +50,7 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
 1. **Chuẩn bị máy ảo (VM)**
 
    * Sử dụng **VMware Workstation Player** hoặc **VirtualBox** để chạy máy ảo.
-   * Tải file `.ovf` đã được cung cấp sẵn trong nội dung đồ án hoặc trong repo `routing`, sau đó import vào VMware để khởi tạo máy ảo Ubuntu cần thiết.
+   * Tải file `.ovf` đã được cung cấp sẵn trong https://drive.google.com/file/d/1ehq41PDK5_fbIyii7NU_7p4BS3QKjr16/view
 
 2. **Cài đặt file yêu cầu của môn học**
 
