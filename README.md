@@ -113,11 +113,6 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
 
 6. **Kiểm thử X11 Forwarding và Tinker GUI**
 
-   * Trong Ubuntu terminal (đang SSH vào VM), chạy:
-
-     ```bash
-     sudo nano /etc/ssh/sshd_config
-      ```
    * Trong VSCode terminal (đang SSH vào VM), chạy:
 
      ```bash
@@ -130,7 +125,7 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
      python3 visualize_network.py 01_small_net.json LS
      ```
 
-7. **Cài đặt các gói cần thiết (trong máy ảo Ubuntu)**
+7. **Cài đặt các gói cần thiết**
 
    ```bash
    sudo apt-get update
@@ -167,12 +162,22 @@ python3 network.py [NetworkSimulationFile.json] LS
 python3 network.py 01_small_net.json LS
 ```
 
----
-
 Sau khi chạy, chương trình sẽ hiển thị các tuyến đường đến/đi của mỗi router. Kết quả sẽ được đối chiếu với tập test mẫu:
 
 * Nếu khớp với kết quả mẫu → triển khai đúng.
 * Nếu sai → cần rà soát lại thuật toán hoặc dữ liệu.
+
+**Lưu ý:** Nếu giao diện không hiển thị đúng, có thể kiểm tra biến môi trường X11 bằng lệnh:
+
+```bash
+echo $DISPLAY
+```
+
+Nếu không có kết quả, hãy đặt biến mới với địa chỉ IP máy host (IPv4) như sau:
+
+```bash
+export DISPLAY=192.168.xxx.xxx:0
+```
 
 ---
 
