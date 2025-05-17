@@ -1,13 +1,13 @@
-# 🚀 Project 2: Intra-Domain Routing Algorithms
+# Project 2: Intra-Domain Routing Algorithms
 
-## 👥 Thành viên nhóm
+## Thành viên nhóm
 
 1. **Đầu Hồng Quang** - 23020135
 2. **Đỗ Đình Nam** - 23020120
 
 ---
 
-## 📘 Giới thiệu đề tài
+## Giới thiệu đề tài
 
 Mạng Internet không phải là một mạng duy nhất, mà là tập hợp của nhiều mạng độc lập gọi là **Autonomous Systems (AS)**. Mỗi AS thường do một tổ chức như nhà cung cấp dịch vụ Internet (ISP), doanh nghiệp, hoặc trường đại học điều hành. Để các gói tin có thể di chuyển giữa các AS, cần có sự phối hợp định tuyến giữa chúng.
 
@@ -17,7 +17,7 @@ Trong môi trường mạng luôn thay đổi (liên kết hỏng, router mất 
 
 ---
 
-## 🧠 Thuật toán sử dụng: Link-State Routing (LS)
+## Thuật toán sử dụng: Link-State Routing (LS)
 
 Thuật toán định tuyến **Link-State (LS)** là một trong hai nhóm chính của định tuyến nội miền (bên cạnh Distance-Vector). Trong mô hình LS:
 
@@ -27,7 +27,7 @@ Thuật toán định tuyến **Link-State (LS)** là một trong hai nhóm chí
 * Thuật toán **Dijkstra** được sử dụng để tính đường đi ngắn nhất từ router đến tất cả các đích khác.
 * Thông tin được cập nhật định kỳ hoặc khi có thay đổi.
 
-### 🔍 Các thành phần chính
+### Các thành phần chính
 
 1. **LSDB (Link-State Database)**
    Lưu trữ thông tin trạng thái của chính router và các router khác trong mạng.
@@ -43,15 +43,14 @@ Thuật toán định tuyến **Link-State (LS)** là một trong hai nhóm chí
 
 ---
 
-## 💻 Hướng dẫn cài đặt
+## Hướng dẫn cài đặt
 
 Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Windows làm máy chủ (host) và Ubuntu trên máy ảo (guest), kèm SSH và X11 forwarding để chạy giao diện Tinker:
 
 1. **Chuẩn bị máy ảo (VM)**
 
-   * Cài đặt **VirtualBox** ([https://www.virtualbox.org/](https://www.virtualbox.org/)) hoặc **VMware Workstation Player**.
-   * Tạo máy ảo mới, cài đặt **Ubuntu 20.04** (hoặc version tương đương).
-   * Cấp đủ tài nguyên (RAM ≥ 4GB, CPU ≥ 2 cores) và mở cổng mạng ở chế độ **Bridged Adapter** hoặc **Host-only**.
+   * Sử dụng **VMware Workstation Player** hoặc **VirtualBox** để chạy máy ảo.
+   * Tải file `.ovf` đã được cung cấp sẵn trong nội dung đồ án hoặc trong repo `routing`, sau đó import vào VMware để khởi tạo máy ảo Ubuntu cần thiết.
 
 2. **Cài đặt file yêu cầu của môn học**
 
@@ -61,7 +60,7 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
      git clone https://github.com/Harvard-CS145/routing.git
      git clone -b spring2025 https://github.com/minlanyu/cs145-site.git
      ```
-   * Chép nội dung thư mục `routing/` vào thư mục home của máy ảo (ví dụ `/home/ubuntu/routing`) qua SMB hoặc SCP:
+   * Chuyển nội dung thư mục `routing/` vào máy ảo qua SCP hoặc thư mục chia sẻ:
 
      ```bash
      scp -r routing/ ubuntu@<VM_IP>:/home/ubuntu/
@@ -78,7 +77,7 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
      sudo systemctl start ssh
      sudo ufw allow OpenSSH
      ```
-   * Xác định địa chỉ IP của VM:
+   * Kiểm tra địa chỉ IP của máy ảo:
 
      ```bash
      ip addr show
@@ -87,44 +86,37 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
 4. **Thiết lập SSH trong VSCode (host Windows)**
 
    * Cài đặt extension **Remote - SSH** trong VSCode.
-   * Tạo (hoặc chỉnh) file cấu hình SSH `~/.ssh/config` trên Windows:
+   * Kiểm tra hoặc tạo file `~/.ssh/config` trên Windows với nội dung:
 
      ```text
      Host cs145-vm
          HostName <VM_IP>
          User ubuntu
-         IdentityFile ~/.ssh/id_rsa
          ForwardX11 yes
          ForwardX11Trusted yes
      ```
-   * Nếu chưa có khóa, tạo khóa RSA:
-
-     ```bash
-     ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-     ssh-copy-id ubuntu@<VM_IP>
-     ```
+   * Không cần tạo khóa RSA nếu đã kết nối được từ terminal hoặc đã thiết lập từ trước.
    * Trong VSCode, chọn **Remote-SSH: Connect to Host... → cs145-vm**.
 
 5. **Cài đặt X Server trên Windows (X11 forwarding)**
 
-   * Tải và cài **Xming** hoặc **VcXsrv (Xlaunch)**:
+   * Tải và cài **VcXsrv (Xlaunch)** hoặc **Xming**:
 
-     * Xming: [https://sourceforge.net/projects/xming/](https://sourceforge.net/projects/xming/)
      * VcXsrv: [https://sourceforge.net/projects/vcxsrv/](https://sourceforge.net/projects/vcxsrv/)
    * Khởi chạy Xlaunch với cấu hình:
 
      * Multiple windows
      * Display number: 0
-     * Clipboard: Enable
-     * Native OpenGL: Disable
-   * Đảm bảo Windows Firewall cho phép Xming/VcXsrv.
+     * Enable clipboard
+     * Disable Native OpenGL
+   * Đảm bảo Windows Firewall cho phép chương trình hoạt động.
 
 6. **Kiểm thử X11 Forwarding và Tinker GUI**
 
    * Trong VSCode terminal (đang SSH vào VM), chạy:
 
      ```bash
-     xeyes    # kiểm tra cửa sổ X11
+     xeyes    # kiểm tra X11 forwarding
      ```
    * Chạy mô phỏng Tinker:
 
@@ -132,27 +124,26 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
      cd ~/routing
      python3 visualize_network.py 01_small_net.json LS
      ```
-   * Giao diện Tinker sẽ hiện lên trên Windows qua Xming/VcXsrv.
 
 7. **Các lệnh hữu ích**
 
-   * Cập nhật gói Python và dependencies:
+   * Cài đặt các gói cần thiết:
 
      ```bash
      sudo apt install -y python3-pip
      pip3 install -r requirements.txt
      ```
-   * Kiểm tra trạng thái SSH:
+   * Kiểm tra SSH hoạt động:
 
      ```bash
      sudo systemctl status ssh
      ```
-   * Thoát VSCode SSH:
+   * Thoát kết nối SSH trong VSCode:
      Chọn **Remote-SSH: Close Remote Connection**.
 
 ---
 
-## 🧪 Hướng dẫn chạy mô phỏng & kiểm thử
+## Hướng dẫn chạy mô phỏng & kiểm thử
 
 ### 1. Mô phỏng với giao diện đồ hoạ (GUI)
 
@@ -182,11 +173,11 @@ python3 network.py 01_small_net.json LS
 
 Sau khi chạy, chương trình sẽ hiển thị các tuyến đường đến/đi của mỗi router. Kết quả sẽ được đối chiếu với tập test mẫu:
 
-* ✅ Nếu khớp với kết quả mẫu → triển khai đúng.
-* ❌ Nếu sai → cần rà soát lại thuật toán hoặc dữ liệu.
+* Nếu khớp với kết quả mẫu → triển khai đúng.
+* Nếu sai → cần rà soát lại thuật toán hoặc dữ liệu.
 
 ---
 
-## 🔗 Tài liệu tham khảo
+## Tài liệu tham khảo
 
 * [Harvard CS145 - Routing Project](https://github.com/Harvard-CS145/routing?tab=readme-ov-file#implementation-instructions)
