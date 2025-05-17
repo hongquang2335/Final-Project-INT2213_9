@@ -113,6 +113,11 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
 
 6. **Kiểm thử X11 Forwarding và Tinker GUI**
 
+   * Trong Ubuntu terminal (đang SSH vào VM), chạy:
+
+     ```bash
+     sudo nano /etc/ssh/sshd_config
+      ```
    * Trong VSCode terminal (đang SSH vào VM), chạy:
 
      ```bash
@@ -125,21 +130,14 @@ Dưới đây là hướng dẫn chi tiết cho trường hợp sử dụng Wind
      python3 visualize_network.py 01_small_net.json LS
      ```
 
-7. **Các lệnh hữu ích**
+7. **Cài đặt các gói cần thiết (trong máy ảo Ubuntu)**
 
-   * Cài đặt các gói cần thiết:
-
-     ```bash
-     sudo apt install -y python3-pip
-     pip3 install -r requirements.txt
-     ```
-   * Kiểm tra SSH hoạt động:
-
-     ```bash
-     sudo systemctl status ssh
-     ```
-   * Thoát kết nối SSH trong VSCode:
-     Chọn **Remote-SSH: Close Remote Connection**.
+   ```bash
+   sudo apt-get update
+   sudo apt-get install python3 python3-pip python3-tk
+   pip3 install Dijkstar
+   pip3 install networkx
+   ```
 
 ---
 
