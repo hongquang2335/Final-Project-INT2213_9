@@ -162,10 +162,7 @@ python3 network.py [NetworkSimulationFile.json] LS
 python3 network.py 01_small_net.json LS
 ```
 
-Sau khi chạy, chương trình sẽ hiển thị các tuyến đường đến/đi của mỗi router. Kết quả sẽ được đối chiếu với tập test mẫu:
-
-* Nếu khớp với kết quả mẫu → triển khai đúng.
-* Nếu sai → cần rà soát lại thuật toán hoặc dữ liệu.
+Sau khi chạy, chương trình sẽ hiển thị các tuyến đường đến/đi của mỗi router. Kết quả sẽ được đối chiếu với tập test mẫu.
 
 **Lưu ý:** Nếu giao diện không hiển thị đúng, có thể kiểm tra biến môi trường X11 bằng lệnh:
 
